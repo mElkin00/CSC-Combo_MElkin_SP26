@@ -31,6 +31,7 @@ public class driver {
 		System.out.println("Float");
 		float realNum = 98765431.987654321f;
 		realNum = realNum + realNum;
+		System.out.println(realNum);
 		System.out.printf("%.2f\n", realNum);
 		System.out.printf("%.9f\n", realNum);
 		// at %.2 the output is 197530864.00
@@ -52,9 +53,11 @@ public class driver {
 		// entering in 3.469 rounds it to 3.47
 		// entering in 3.4499 rounds it to 3.45
 
-		// The reason that we get 197530864.000000000 for the
-		// float instead of 1975308643.975308700 is because the
-		// float cannot handle numbers that big, but the double can
+		/*
+		 * The reason that we get 197530864.000000000 for the float instead of
+		 * 1975308643.975308700 is because the float cannot handle numbers that big, but
+		 * the double can
+		 */
 
 		System.out.println("Enter a letter");
 		char letter = input.next().charAt(0);

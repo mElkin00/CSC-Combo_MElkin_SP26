@@ -9,7 +9,7 @@ public class TempConversion {
 
 		System.out.println("What is the Temperature in Fahrenheit?");
 		F = input.nextDouble();
-		//Fahrenheit is (F - 32) times (5/9)
+		//Celcius is (F - 32) times (5/9)
 		C = (F - 32) * 5 /9;
 		//Kelvin is Celcius + 273.15
 		K = C + + 273.15;

@@ -31,7 +31,7 @@ public class GradeCalcProject {
 				}
 			}
 			
-			if (grade >= 80 && grade < 90) {
+			else (grade >= 80 && grade < 90) {
 				letter = "B";
 				if (grade >= 87) {
 					symbol = "+";
@@ -41,7 +41,7 @@ public class GradeCalcProject {
 				}
 			}
 			
-			if (grade >= 70 && grade < 80) {
+			else (grade >= 70 && grade < 80) {
 				letter = "C";
 				if (grade >= 77) {
 					symbol = "+";
@@ -51,13 +51,13 @@ public class GradeCalcProject {
 				}
 			}
 			
-			if (grade >= 60 && grade < 70) {
+			else (grade >= 60 && grade < 70) {
 				letter = "D";
 				if (grade >= 67) {
 					symbol = "+";
 				}
 			}
-			if (grade < 60) {
+			else (grade < 60) {
 				letter = "F";
 			}
 			

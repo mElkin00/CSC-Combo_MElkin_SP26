@@ -1,5 +1,3 @@
-package gradeCalculator;
-
 import java.util.Scanner;
 
 public class GradeCalcProject {

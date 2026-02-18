@@ -1,4 +1,13 @@
+/************************
+ * 						*
+ * 	@author S02373613	*
+ *	2/18/2026			*
+ * 						*
+ ***********************/
+
 package wk5_class;
+
+import java.util.Scanner;
 
 public class SumOfForNumbers {
 
@@ -40,7 +49,9 @@ public class SumOfForNumbers {
 	 * 																													*
 	 ********************************************************************************************************************/
 	
-	Scanner
+	Scanner input = new Scanner(System.in);
+	
+	int num1, num2, num3;
 	
 	
 	

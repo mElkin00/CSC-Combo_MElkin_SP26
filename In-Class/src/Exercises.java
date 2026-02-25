@@ -29,9 +29,14 @@ public class Exercises {
 			System.out.println(word + " is not a doubloon");
 		}
 		System.out.println("What Scrabble letters do you have? ");
-		String letters = input.next();
-		if(canSpell(lWord)) {
+		String tiles = input.next();
+		System.out.println("What word do you need to spell?");
+		word = input.next();
+		if(canSpell(tiles, word)) {
 			System.out.println("You can spell the word " + word);
+		}
+		else {
+			System.out.println("You cannot spell the word " + word);
 		}
 		
 	}
@@ -50,6 +55,7 @@ public class Exercises {
 	 * 		whether the set of tiles can spell the word. You		*
 	 * 		might have more than one tile with the same letter,		*
 	 * 		but you can use each tile only once.					*
+	 * 																*
 	 *		 try using indexOf, charAt, & substring					*
 	 *			boolean canSpell(String tiles, String word) 		*
 	 *	    		for ( 0 -> word.length )						*
@@ -61,9 +67,26 @@ public class Exercises {
 	 *																*
 	 ****************************************************************/
 	
-	private static boolean canSpell(String lWord) {
-		// TODO Auto-generated method stub
-		return false;
+	private static boolean canSpell(String tiles, String word) {
+		int wordCount = 0;
+		int tileCount= 0;
+		for (int i = 0; i < word.length(); i++) {
+			wordCount = 0;
+			for (int j = 0; j < word.length(); j++) {
+				if(word.charAt(i) == word.charAt(j)) {
+					wordCount ++;
+				}
+			}
+			tileCount = 0;
+			for (int k = 0; k < tiles.length(); k++) {
+				
+				if(word.charAt(i) == tiles.charAt(k)) {
+					tileCount ++;
+				}
+				
+			}
+		}
+		return tileCount >= wordCount;
 	}
 	
 	/********************************************

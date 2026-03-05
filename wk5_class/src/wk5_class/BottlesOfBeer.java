@@ -39,7 +39,3 @@ public class BottlesOfBeer {
 	}
 	
 }
-
-
-//System.out.println( + " bottles of beer on the wall, " +  + " bottles of beer.");
-//System.out.println("Take one down and pass it around, " +  + " bottles of beer on the wall.");

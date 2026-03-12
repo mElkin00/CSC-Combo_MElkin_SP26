@@ -1,7 +1,7 @@
 
 public class Strings2 {
 
-	public static void main(String[] args) {
+	private static void main(String[] args) {
 		//Make every letter in a string repeat ex. The -> TThhee
 		//double char
 		String str = "AAbb";

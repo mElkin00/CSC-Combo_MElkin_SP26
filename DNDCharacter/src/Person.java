@@ -24,9 +24,9 @@ public class Person {
 	}
 	
 	public int hit(Person victim) {
-		int damage = (this.strength + this.weapon.getDamage()) * rand.nextInt(3);
+		int damage = (this.strength + this.weapon.getDamage()) * rand.nextInt(9);
 		victim.health -= damage;
-		System.out.println();
+		System.out.println(damage);
 		return damage;
 	}
 	

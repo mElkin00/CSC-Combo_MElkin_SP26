@@ -5,22 +5,41 @@ public class War {
 		
 		Deck deck = new Deck();
 		deck.shuffle();
-		deck.printDeck();
-		System.out.println();
-		deck.selectionSort();
-		deck.printDeck();
-
-	}
-
-	private static int search(Card[] cards, Card target) {
-		for(int i = 0; i < cards.length; i++) {
-			if(cards[i].equals(target)) {
-				return i;
+		
+		Pile p1 = new Pile();
+		p1.addDeck(deck.subdeck(0, 25));
+		p1.pilePrint();
+		
+		System.out.println("***********************");
+		
+		Pile p2 = new Pile();
+		p2.addDeck(deck.subdeck(26, 51));
+		p2.pilePrint();
+		
+		while(!p1.isEmpty() && !p2.isEmpty()) {
+			Card c1 = p1.pop();
+			Card c2 = p2.pop();
+			
+			int diff = c1.getRank() - c2.getRank();
+			if(diff > 0) {
+				p1.add(c1);
+				p1.add(c2);
+			}
+			
+			else if(diff < 0) {
+				p2.add(c1);
+				p2.add(c2);
+			}
+			
+			else {
+				
 			}
 			
 		}
-		return -1;
 		
+		if(p2.isEmpty())System.out.println("Player 1 wins!");
+		else System.out.println("Player 2 wins!");
+
 	}
 
 }

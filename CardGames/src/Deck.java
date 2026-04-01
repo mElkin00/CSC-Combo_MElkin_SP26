@@ -9,6 +9,26 @@ public class Deck {
 		
 	}
 	
+	public Deck() {
+		this.cards = new Card[52];
+		int index = 0;
+		for (int suit = 0; suit < 4; suit++) {
+			
+			for (int rank = 1; rank <= 13; rank++) {	
+				cards[index] = new Card(rank, suit);
+				index++;
+			}
+		}
+	}
+	
+	public Deck subdeck(int low, int high) {
+		Deck sub = new Deck(high - low + 1);
+		for(int i = 0; i < sub.cards.length; i++) {
+			sub.cards[i] = this.cards[low + i];
+		}
+		return sub;
+	}
+	
 	public void selectionSort() {
 		for (int i = 0; i < this.cards.length; i++) {
 			int j = indexLowest(i, this.cards.length - 1);
@@ -44,6 +64,17 @@ public class Deck {
 		this.cards[j] = temp;
 	}
 	
+	public int search(Card target) {
+		for(int i = 0; i < cards.length; i++) {
+			if(cards[i].equals(target)) {
+				return i;
+			}
+			
+		}
+		return -1;
+		
+	}
+	
 	private int binSearch(Deck cards, Card target) {
 		int count = 0;
 		int low = 0;
@@ -59,17 +90,6 @@ public class Deck {
 		return 0;
 	}
 	
-	public Deck() {
-		this.cards = new Card[52];
-		int index = 0;
-		for (int suit = 0; suit < 4; suit++) {
-			
-			for (int rank = 1; rank <= 13; rank++) {	
-				cards[index] = new Card(rank, suit);
-				index++;
-			}
-		}
-	}
 	public Card[] getCards() {
 		return this.cards;
 	}

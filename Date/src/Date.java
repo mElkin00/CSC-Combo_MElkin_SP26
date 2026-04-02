@@ -1,9 +1,9 @@
 
 public class Date {
 	
-	private int year;
 	private int month;
 	private int day;
+	private int year;
 	
 	//default constructor
 	public Date() {
@@ -15,9 +15,9 @@ public class Date {
 	//value constructor
 	public Date(int year, int month, int day) {
 		super();
-		this.year = year;
 		this.month = month;
 		this.day = day;
+		this.year = year;
 	}
 
 	public int getYear() {
@@ -46,8 +46,8 @@ public class Date {
 
 	public static Date add(Date d1, Date d2) {
 		Date sum = new Date();
-		sum.day = d1.day + d2.day;
 		sum.month = d1.month + d2.month;
+		sum.day = d1.day + d2.day;
 		sum.year = d1.year + d2.year;
 		
 		if(sum.day > 31) {
@@ -57,10 +57,15 @@ public class Date {
 		
 		if(sum.month > 12) {
 			sum.year++;
-			sum.month %=12;
+			sum.month %= 12;
 		}
 		
 		return sum;
+	}
+
+	@Override
+	public String toString() {
+		return month + "/" + day + "/" + year;
 	}
 	
 	

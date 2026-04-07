@@ -19,6 +19,7 @@ public class ArrayReversal {
 					System.out.println(nums);
 				}
 			}
+			System.out.println(nums);
 			//System.out.println(ArrayList<Integer>nums());
 		}
 

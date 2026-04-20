@@ -1,0 +1,211 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+/********************************************************
+ * 														*
+ *	This is a Tic Tac Toe game created with code.		*
+ * 	it will need a player variable and a board			*
+ * 	the player variable will be an int that alternates	*
+ * 	between 1 and 2										*
+ *	 													*
+ * 	the board will be an array of chars					*
+ *	 													*
+ * 	@author S02373613									*
+ * 	@date 4/20/2026										*
+ * 														*
+ ********************************************************/
+public class tic_tac_toe {
+
+	public static void main(String[] args) {
+		int player = 2;
+		char[][] board = new char[3][3];
+		fillBoard(board);
+		drawBoard(board);
+		int count = 0;
+		while (count < 9 && checkWinner(board, player) < 0) {
+			player = player % 2 + 1;
+			makeMove(board, player);
+			drawBoard(board);
+			count++;
+		}
+		if(checkWinner(board, player) > 0)
+			System.out.println("Player " + player + " is the winner!!!");
+		else
+			System.out.println("Cat's Game!!");
+	}
+
+	private static int checkWinner(char[][] board, int player) {
+		String line = null;
+		for(int i = 0; i < 8; i++)
+		{
+			switch(i) {
+				case 0: //top horizontal
+					line = String.valueOf(board[0][0]) + board[0][1] + board[0][2];
+					break;
+				case 1: //mid horizontal
+					line = String.valueOf(board[1][0]) + board[1][1] + board[1][2];
+					break;
+				case 2:	//bottom horizontal
+					line = String.valueOf(board[2][0]) + board[2][1] + board[2][2];
+					break;
+				case 3:	//left vertical
+					line = String.valueOf(board[0][0]) + board[1][0] + board[2][0];
+					break;
+				case 4:	//mid vertical
+					line = String.valueOf(board[1][0]) + board[1][1] + board[1][2];
+					break;
+				case 5:	//right vertical
+					line = String.valueOf(board[2][0]) + board[2][1] + board[2][2];
+					break;
+				case 6:	//bro, I completely lost track
+					line = String.valueOf(board[0][0]) + board[1][1] + board[2][2];
+					break;
+				case 7:
+					line = String.valueOf(board[2][0]) + board[1][1] + board[0][2];
+					break;
+			}
+			
+			if(line.equals("XXX") || line.equals("OOO"))return player;
+		}
+		return -1;
+
+	}
+
+	private static void makeMove(char[][] board, int player) {
+		Scanner input = new Scanner(System.in);
+		int row = -1;
+		int col = -1;
+		char marker = 'X';
+		if(player == 2)
+			marker = 'O';		
+		
+		int place = -1;
+		while(place < 1 || place > 9)	//makes sure they choose 1-9
+		{
+			System.out.println("Player " + player + " enter the " +
+								"number where you want to place your marker");
+			place = input.nextInt();
+		}
+		switch(place)
+		{
+		case 1:
+			row = 0;
+			col = 0;
+			break;
+		case 2:
+			row = 0;
+			col = 1;
+			break;
+		case 3:
+			row = 0;
+			col = 2;
+			break;
+		case 4:
+			row = 1;
+			col = 0;
+			break;
+		case 5:
+			row = 1;
+			col = 1;
+			break;
+		case 6:
+			row = 1;
+			col = 2;
+			break;
+		case 7:
+			row = 2;
+			col = 0;
+			break;
+		case 8:
+			row = 2;
+			col = 1;
+			break;
+		case 9:
+			row = 2;
+			col = 2;
+			break;
+		}
+		
+		while(!Character.isDigit(board[row][col]))	//makes sure spot isn't used
+		{
+			System.out.println("Player " + player + " enter the "
+					+ "number where you want to place your marker");
+			place = input.nextInt();
+			switch(place)
+			{
+			case 1:
+				row = 0;
+				col = 0;
+				break;
+			case 2:
+				row = 0;
+				col = 1;
+				break;
+			case 3:
+				row = 0;
+				col = 2;
+				break;
+			case 4:
+				row = 1;
+				col = 0;
+				break;
+			case 5:
+				row = 1;
+				col = 1;
+				break;
+			case 6:
+				row = 1;
+				col = 2;
+				break;
+			case 7:
+				row = 2;
+				col = 0;
+				break;
+			case 8:
+				row = 2;
+				col = 1;
+				break;
+			case 9:
+				row = 2;
+				col = 2;
+				break;
+			}
+		}
+		board[row][col] = marker;
+		
+		
+		//input.close();
+	}
+
+	private static void drawBoard(char[][] board) {
+		int index = 0;
+		for(int i = 0; i < 3; i++)		//rows
+		{
+			for(int j = 0; j < 3; j++)	//columns
+			{
+				System.out.print(board[i][j]);
+				if(j != 2) System.out.print('|');
+				
+			}
+			System.out.println("");
+			if(i != 2) System.out.println("~~~~~");
+		}
+		
+	}
+
+	private static void fillBoard(char[][] board) {
+		int index = 0;
+		char ch = '1';
+		for(int i = 0; i < 3; i++)
+		{
+			for(int j = 0; j < 3; j++) {
+				board[i][j] = ch;
+				ch++;
+				index++;
+			
+			}
+		}
+		
+	}
+
+}

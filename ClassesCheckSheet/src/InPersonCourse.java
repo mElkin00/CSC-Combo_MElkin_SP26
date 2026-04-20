@@ -10,7 +10,7 @@ public class InPersonCourse extends Course{
 
 	public InPersonCourse(String courseName, int numStudents, int maxStudents, int credits, String roomNum) {
 		super(courseName, numStudents, maxStudents, credits);
-		this.roomNum = "";
+		this.roomNum = roomNum;
 	}
 
 	public String getRoomNum() {

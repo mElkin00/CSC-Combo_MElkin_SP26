@@ -23,7 +23,7 @@ public class RealTimeRemoteCourse extends OnlineCourse {
 	
 	@Override
 	public String toString() {
-		return "Real time remote course: " + "courseName" + super.getCourse() + ", numStudents=" + super.getNumStudents()
+		return "Real time remote course: " + "courseName: " + super.getCourse() + ", numStudents=" + super.getNumStudents()
 				+ ", maxStudents=" + super.getMaxStudents() + ", credits=" + super.getCredits() + "Zoom info, " + zoom;
 	}
 	

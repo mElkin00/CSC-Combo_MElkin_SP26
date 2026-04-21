@@ -57,10 +57,10 @@ public class tic_tac_toe {
 				case 5:	//right vertical
 					line = String.valueOf(board[2][0]) + board[2][1] + board[2][2];
 					break;
-				case 6:
+				case 6: //right diag
 					line = String.valueOf(board[0][0]) + board[1][1] + board[2][2];
 					break;
-				case 7:
+				case 7: //left diag
 					line = String.valueOf(board[2][0]) + board[1][1] + board[0][2];
 					break;
 			}
@@ -70,112 +70,6 @@ public class tic_tac_toe {
 		return -1;
 
 	}
-
-//	private static void makeMove(char[][] board, int player) {
-//		Scanner input = new Scanner(System.in);
-//		int row = -1;
-//		int col = -1;
-//		char marker = 'X';
-//		if(player == 2)
-//			marker = 'O';		
-//		
-//		int place = -1;
-//		while(place < 1 || place > 9)	//makes sure they choose 1-9
-//		{
-//			System.out.println("Player " + player + " enter the " +
-//								"number where you want to place your marker");
-//			place = input.nextInt();
-//		}
-//		switch(place)
-//		{
-//		case 1:
-//			row = 0;
-//			col = 0;
-//			break;
-//		case 2:
-//			row = 0;
-//			col = 1;
-//			break;
-//		case 3:
-//			row = 0;
-//			col = 2;
-//			break;
-//		case 4:
-//			row = 1;
-//			col = 0;
-//			break;
-//		case 5:
-//			row = 1;
-//			col = 1;
-//			break;
-//		case 6:
-//			row = 1;
-//			col = 2;
-//			break;
-//		case 7:
-//			row = 2;
-//			col = 0;
-//			break;
-//		case 8:
-//			row = 2;
-//			col = 1;
-//			break;
-//		case 9:
-//			row = 2;
-//			col = 2;
-//			break;
-//		}
-//		
-//		while(!Character.isDigit(board[row][col]))	//makes sure spot isn't used
-//		{
-//			System.out.println("Player " + player + " enter the "
-//					+ "number where you want to place your marker");
-//			place = input.nextInt();
-//			switch(place)
-//			{
-//			case 1:
-//				row = 0;
-//				col = 0;
-//				break;
-//			case 2:
-//				row = 0;
-//				col = 1;
-//				break;
-//			case 3:
-//				row = 0;
-//				col = 2;
-//				break;
-//			case 4:
-//				row = 1;
-//				col = 0;
-//				break;
-//			case 5:
-//				row = 1;
-//				col = 1;
-//				break;
-//			case 6:
-//				row = 1;
-//				col = 2;
-//				break;
-//			case 7:
-//				row = 2;
-//				col = 0;
-//				break;
-//			case 8:
-//				row = 2;
-//				col = 1;
-//				break;
-//			case 9:
-//				row = 2;
-//				col = 2;
-//				break;
-//			}
-//		}
-//		board[row][col] = marker;
-//		
-//		
-//		//input.close();
-//	}
 	
 	private static void makeMove(char[][] board, int player) {
 		Scanner input = new Scanner(System.in);
@@ -192,6 +86,21 @@ public class tic_tac_toe {
 					//The "Magic" Math
 					row = (place - 1) / 3;
 					col = (place - 1) % 3;
+					
+					//Check if the spot is available
+					if(Character.isDigit(board[row][col])) {
+						board[row][col] = marker;
+						break; //Move Successful, exit loop
+						
+					}
+					else {
+						System.out.println("Invalid range. Please pick 1-9");
+						
+					}
+				}
+				else {
+					System.out.println("Please enter a number between 1 and 9 that hasn't been taken already.");
+					input.next(); //Clear invalid input
 				}
 			}
 		}

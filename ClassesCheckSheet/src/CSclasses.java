@@ -58,16 +58,16 @@ public class CSclasses {
 		System.out.println("Max Students:" + course.getMaxStudents());
 		System.out.println("Credits:" + course.getCredits());
 		if(course instanceof InPersonCourse) {
-			course = (InPersonCourse)course;
-			System.out.println("\n" + course.getRoomNum);
+			InPersonCourse IPcourse = (InPersonCourse)course;
+			System.out.println("\n" + IPcourse.getRoomNum());
 		}
 		else if(course instanceof FullRemoteCourse) {
-			course = (FullRemoteCourse)course;
-			System.out.println("\n" + course.getEmail());
+			FullRemoteCourse FRCourse = (FullRemoteCourse)course;
+			System.out.println("\n" + FRCourse.getEmail());
 		}
 		else if (course instanceof RealTimeRemoteCourse) {
-			course = (RealTimeRemoteCourse)course;
-			System.out.println("\n" + course.getZoomInfo());
+			RealTimeRemoteCourse RTCourse = (RealTimeRemoteCourse)course;
+			System.out.println("\n" + RTCourse.getZoom());
 		}
 		
 	}

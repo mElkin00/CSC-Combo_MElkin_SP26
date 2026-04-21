@@ -52,7 +52,7 @@ public class tic_tac_toe {
 					line = String.valueOf(board[0][0]) + board[1][0] + board[2][0];
 					break;
 				case 4:	//mid vertical
-					line = String.valueOf(board[1][0]) + board[1][1] + board[1][2];
+					line = String.valueOf(board[0][1]) + board[1][1] + board[2][1];
 					break;
 				case 5:	//right vertical
 					line = String.valueOf(board[2][0]) + board[2][1] + board[2][2];
@@ -100,7 +100,7 @@ public class tic_tac_toe {
 				}
 				else {
 					System.out.println("Please enter a number between 1 and 9 that hasn't been taken already.");
-					input.next(); //Clear invalid input
+					
 				}
 			}
 		}

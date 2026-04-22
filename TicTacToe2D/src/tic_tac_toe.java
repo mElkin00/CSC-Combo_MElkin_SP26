@@ -1,21 +1,24 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-/********************************************************
- * 														*
- *	This is a Tic Tac Toe game created with code.		*
- * 	it will need a player variable and a board			*
- * 	the player variable will be an int that alternates	*
- * 	between 1 and 2										*
- *	 													*
- * 	the board will be an array of chars					*
- *	 													*
- * 	@author S02373613									*
- * 	@date 4/20/2026										*
- * 														*
- ********************************************************/
+/************************************************************************
+ * 																		
+ *	This is a Tic Tac Toe game created with code. It will need a		
+ *	player variable and a board	the player variable will be an int		
+ *	that alternates between 1 and 2 the board will be an array of chars	
+ *	 																	
+ * 	@author S02373613													
+ * 	@since 4/22/2026														
+ * 																		
+ ************************************************************************/
+
 public class tic_tac_toe {
 
+	/**
+	 * This is the main method all operations begin and end here
+	 * 
+	 * @param args command line arguments
+	 */
 	public static void main(String[] args) {
 		int player = 2;
 		char[][] board = new char[3][3];
@@ -34,6 +37,14 @@ public class tic_tac_toe {
 			System.out.println("Cat's Game!!");
 	}
 
+	/**
+	 * This takes in the board and the current player and checks to see if there is a winning combination
+	 * if there is a win condition, it returns the player. Otherwise it returns negative 1
+	 * 
+	 * @param board --this is a 2D array of chars to represent a tic-tac-toe board
+	 * @param player -- this is the current player
+	 * @return -- this returns the player or - 1
+	 */
 	private static int checkWinner(char[][] board, int player) {
 		String line = null;
 		for(int i = 0; i < 8; i++)
@@ -57,10 +68,10 @@ public class tic_tac_toe {
 				case 5:	//right vertical
 					line = String.valueOf(board[2][0]) + board[2][1] + board[2][2];
 					break;
-				case 6: //right diag
+				case 6: //left to right diag
 					line = String.valueOf(board[0][0]) + board[1][1] + board[2][2];
 					break;
-				case 7: //left diag
+				case 7: //right to left diag
 					line = String.valueOf(board[2][0]) + board[1][1] + board[0][2];
 					break;
 			}
@@ -71,6 +82,14 @@ public class tic_tac_toe {
 
 	}
 	
+	/**
+	 * This is where the current player makes their move
+	 * it first checks the input is an int and it is between 1 and 9 inclusive
+	 * then it checks that the space is not taken.
+	 * 
+	 * @param board --this is a 2D array of chars to represent a tic-tac-toe board
+	 * @param player -- this is the current player
+	 */
 	private static void makeMove(char[][] board, int player) {
 		Scanner input = new Scanner(System.in);
 		int row, col, place;
@@ -106,7 +125,11 @@ public class tic_tac_toe {
 		}
 	}
 	
-	
+	/**
+	 * This draws the board to the console using ASCII
+	 * 
+	 * @param board --this is a 2D array of chars to represent a tic-tac-toe board
+	 */
 	private static void drawBoard(char[][] board) {
 		int index = 0;
 		for(int i = 0; i < 3; i++)		//rows
@@ -123,6 +146,11 @@ public class tic_tac_toe {
 		
 	}
 
+	/**
+	 * This fills the array with chars from '1' to '9'
+	 * 
+	 * @param board --this is a 2D array of chars to represent a tic-tac-toe board
+	 */
 	private static void fillBoard(char[][] board) {
 		int index = 0;
 		char ch = '1';

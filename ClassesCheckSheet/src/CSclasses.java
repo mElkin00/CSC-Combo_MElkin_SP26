@@ -1,14 +1,18 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CSclasses {
-
+	public static MyFileWriter fw = new MyFileWriter("courses.txt");
+	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		ArrayList<Course> courseList = new ArrayList<>();
 		
 		Course course;
 		String another = "yes";
+		File file = fw.getFile();
+		
 		while(another.charAt(0) == 'y') {
 			System.out.println("What type of course is it? 1 = In-Person, 2 = RTR, 3 = Full Online");
 			int type = input.nextInt();
@@ -37,6 +41,7 @@ public class CSclasses {
 				course = new FullRemoteCourse(courseName, numStudents, maxStudents, credits);
 			}
 			courseList.add(course);
+			addToFile(file, course);
 			System.out.println("Do you need to enter another course?");
 			another = input.next();
 			another = another.toLowerCase();
@@ -48,6 +53,30 @@ public class CSclasses {
 		}
 		
 	}
+	
+	public static void addToFile(File file, Course course) {
+		if(course instanceof InPersonCourse) {
+			fw.appendToFile(file, "IP ");
+			InPersonCourse ipcourse = (InPersonCourse) course;
+			fw.appendToFile(file, ipcourse.getRoomNum() + " ");
+		}
+		else if(course instanceof FullRemoteCourse) {
+			fw.appendToFile(file, "FR ");
+			FullRemoteCourse frcourse = (FullRemoteCourse) course;
+			fw.appendToFile(file, frcourse.getEmail() + " ");
+		}
+		else if(course instanceof RealTimeRemoteCourse) {
+			fw.appendToFile(file, "RTR ");
+			RealTimeRemoteCourse rtrcourse = (RealTimeRemoteCourse) course;
+			fw.appendToFile(file, rtrcourse.getZoom() + " ");
+		}
+		fw.appendToFile(file, course.getCourse() + " ");
+		fw.appendToFile(file, course.getNumStudents() + " ");
+		fw.appendToFile(file, course.getMaxStudents() + " ");
+		fw.appendToFile(file, course.getCredits() + "\n");
+		
+	}
+	
 	public static void print(Course course) {
 		System.out.println(course);
 	}
@@ -59,15 +88,15 @@ public class CSclasses {
 		System.out.println("Credits:" + course.getCredits());
 		if(course instanceof InPersonCourse) {
 			InPersonCourse IPcourse = (InPersonCourse)course;
-			System.out.println("\n" + IPcourse.getRoomNum());
+			System.out.println(IPcourse.getRoomNum());
 		}
 		else if(course instanceof FullRemoteCourse) {
 			FullRemoteCourse FRCourse = (FullRemoteCourse)course;
-			System.out.println("\n" + FRCourse.getEmail());
+			System.out.println(FRCourse.getEmail());
 		}
 		else if (course instanceof RealTimeRemoteCourse) {
 			RealTimeRemoteCourse RTCourse = (RealTimeRemoteCourse)course;
-			System.out.println("\n" + RTCourse.getZoom());
+			System.out.println(RTCourse.getZoom());
 		}
 		
 	}

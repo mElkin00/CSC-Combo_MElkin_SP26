@@ -5,12 +5,11 @@ public class FullRemoteCourse extends Course {
 
 	public FullRemoteCourse() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public FullRemoteCourse(String courseName, int numStudents, int maxStudents, int credits, String email) {
 		super(courseName, numStudents, maxStudents, credits);
-		// TODO Auto-generated constructor stub
+		this.email = email;
 	}
 
 	public FullRemoteCourse(String email) {

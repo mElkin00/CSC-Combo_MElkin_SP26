@@ -5,7 +5,6 @@ public class RealTimeRemoteCourse extends OnlineCourse {
 
 	public RealTimeRemoteCourse() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public RealTimeRemoteCourse(String courseName, int numStudents, int maxStudents, int credits, String zoom) {

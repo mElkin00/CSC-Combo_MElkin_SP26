@@ -8,7 +8,7 @@ public class FullRemoteCourse extends Course {
 		// TODO Auto-generated constructor stub
 	}
 
-	public FullRemoteCourse(String courseName, int numStudents, int maxStudents, int credits) {
+	public FullRemoteCourse(String courseName, int numStudents, int maxStudents, int credits, String email) {
 		super(courseName, numStudents, maxStudents, credits);
 		// TODO Auto-generated constructor stub
 	}

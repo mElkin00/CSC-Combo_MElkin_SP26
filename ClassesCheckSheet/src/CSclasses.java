@@ -7,7 +7,8 @@ public class CSclasses {
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		ArrayList<Course> courseList = new ArrayList<>();
+		MyFileReader reader = new MyFileReader("courses.txt");
+		ArrayList<Course> courseList = reader.getList();
 		
 		Course course;
 		String another = "yes";
@@ -16,6 +17,7 @@ public class CSclasses {
 		while(another.charAt(0) == 'y') {
 			System.out.println("What type of course is it? 1 = In-Person, 2 = RTR, 3 = Full Online");
 			int type = input.nextInt();
+			if(type == 4)break;
 			System.out.println("What is the course number?");
 			String courseName = input.next();
 			System.out.println("How many students?");
@@ -38,13 +40,14 @@ public class CSclasses {
 			else {
 				System.out.println("What is the Email?");
 				String email = input.next();
-				course = new FullRemoteCourse(courseName, numStudents, maxStudents, credits);
+				course = new FullRemoteCourse(courseName, numStudents, maxStudents, credits, email);
 			}
 			courseList.add(course);
 			addToFile(file, course);
 			System.out.println("Do you need to enter another course?");
 			another = input.next();
 			another = another.toLowerCase();
+			
 		}
 		
 		for(Course course1 : courseList) {

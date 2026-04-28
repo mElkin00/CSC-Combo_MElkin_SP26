@@ -10,7 +10,33 @@ public class MyFileReader {
 	public MyFileReader(String fileName) {
 		file = new File(fileName);
 		try (Scanner myReader = new Scanner(file)) {
-			
+			while(myReader.hasNextLine()) {
+				String data = myReader.nextLine();
+				String[] parts = data.split(" ");
+				System.out.println(data);
+				String type = parts[0];
+				String option = parts[1];
+				String crsNum = parts[2];
+				int numStuds = Integer.valueOf(parts[3]);
+				int maxStuds = Integer.valueOf(parts[4]);
+				int creds = Integer.valueOf(parts[5]);
+				System.out.println(myReader.nextLine());
+				Course course;
+				
+				if(type.equals("IP")) {
+					course = new InPersonCourse(crsNum, numStuds, maxStuds, creds, option);
+					
+				}
+				else if(type.equals("FR" )) {
+					course = new FullRemoteCourse(crsNum, numStuds, maxStuds, creds, option);
+					
+				}
+				else {
+					course = new RealTimeRemoteCourse(crsNum, numStuds, maxStuds, creds, option);
+					
+				}
+				crsList.add(course);
+			}
 			
 		}
 		catch (FileNotFoundException e) {
@@ -18,5 +44,8 @@ public class MyFileReader {
 			e.printStackTrace();
 		}
 
-	}	
+	}
+	public ArrayList<Course> getList() {
+		return crsList;
+	}
 }

@@ -8,7 +8,7 @@ public class RealTimeRemoteCourse extends OnlineCourse {
 	}
 
 	public RealTimeRemoteCourse(String courseName, int numStudents, int maxStudents, int credits, String zoom) {
-		super(courseName, numStudents, maxStudents, credits);
+		super(courseName, numStudents, maxStudents, credits, zoom);
 		this.zoom = zoom;
 	}
 

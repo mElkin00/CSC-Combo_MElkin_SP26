@@ -2,7 +2,18 @@
 public class LLDriver {
 
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		LinkedList<Integer> list = new LinkedList();
+		LinkedList<String> sList = new LinkedList<>();
+		
+		sList.append("Ben");
+		sList.append("Sherry");
+		sList.append("Mason");
+		sList.append("Bob");
+		sList.append("Scott");
+		
+		sList.display();
+		
+		
 		list.append(21);
 		list.append(34);
 		list.append(12);

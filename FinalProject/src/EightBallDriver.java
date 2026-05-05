@@ -30,11 +30,14 @@ public class EightBallDriver {
 				+ "| |              | | | |              | || |              | || |              | || |              | |    \r\n"
 				+ "| '--------------' | | '--------------' || '--------------' || '--------------' || '--------------' |    \r\n"
 				+ " '----------------'   '----------------'  '----------------'  '----------------'  '----------------'     ");
+		
+		//Enters a loop that checks if you want to continue in the program
 		while(another.charAt(0) == 'y') {
 			System.out.println("Ask me a question and I will predict your future");
 			question = input.next();
+			//this try catch statement is used to print out shaking and 5 dots with 1/2 second between each dot
 			try {
-				System.out.print("Thinking");
+				System.out.print("Shaking");
 				for(int i = 0; i < 5; i++ ) {
 					System.out.print(".");
 					Thread.sleep(500);
@@ -43,10 +46,12 @@ public class EightBallDriver {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			String respond = eightBall.respond();
 			
+			//uses the EightBall.java doc to choose what to respond and prints it out
+			String respond = eightBall.respond();
 			System.out.println(respond);
 			
+			//asks the user if they want to go again. if not it exits the loop
 			System.out.print("Would you like to ask me another question? ");
 			input.nextLine();
 			another = input.next();

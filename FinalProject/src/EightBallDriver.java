@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class EightBallDriver {
 
 	public static void main(String[] args) {
-		
+		// initializes variables and allows us to use the EightBall class
 		EightBall eightBall = new EightBall();
 		String another = "yes";
 		Scanner input = new Scanner(System.in);
@@ -31,11 +31,11 @@ public class EightBallDriver {
 				+ "| '--------------' | | '--------------' || '--------------' || '--------------' || '--------------' |    \r\n"
 				+ " '----------------'   '----------------'  '----------------'  '----------------'  '----------------'     ");
 		
-		//Enters a loop that checks if you want to continue in the program
+		// enters a loop that checks if you want to continue in the program
 		while(another.charAt(0) == 'y') {
 			System.out.println("Ask me a question and I will predict your future");
 			question = input.next();
-			//this try catch statement is used to print out shaking and 5 dots with 1/2 second between each dot
+			// this try catch statement is used to print out shaking and 5 dots with 1/2 second between each dot
 			try {
 				System.out.print("Shaking");
 				for(int i = 0; i < 5; i++ ) {
@@ -47,11 +47,11 @@ public class EightBallDriver {
 				e.printStackTrace();
 			}
 			
-			//uses the EightBall.java doc to choose what to respond and prints it out
+			// uses the EightBall.java doc to choose what to respond and prints it out
 			String respond = eightBall.respond();
 			System.out.println(respond);
 			
-			//asks the user if they want to go again. if not it exits the loop
+			// asks the user if they want to go again, if not it exits the loop and ends the program
 			System.out.print("Would you like to ask me another question? ");
 			input.nextLine();
 			another = input.next();

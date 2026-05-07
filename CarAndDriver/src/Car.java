@@ -15,7 +15,7 @@ public class Car {
 	 * create a method called drive that takes an int called moves
 	 * 
 	 * in this method create a loop that loops moves times 
-	 * each loop should create a random number between 1 and 4 inclusive
+	 * each loop should create a random number between 0 and 3 inclusive
 	 * then using either a switch or an if-else chain print to the console 
 	 * "_North", "_South", "_East", or "_West" according to the random number
 	 * for each move fuel will lose 0.2 units

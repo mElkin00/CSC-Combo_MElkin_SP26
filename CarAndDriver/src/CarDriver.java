@@ -4,7 +4,7 @@ public class CarDriver {
 	public static void main(String[] args) {
 		//create a Scanner for input
 		
-		//create an ArrayList of Car objects called "cars"
+		//create an ArrayList of Car objects called "cars" use .append to add to ArrayList
 		
 		//create the two double variables mpg and fuel
 		

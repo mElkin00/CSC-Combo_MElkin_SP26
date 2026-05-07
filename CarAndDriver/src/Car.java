@@ -1,14 +1,61 @@
+import java.util.Random;
 
 public class Car {
 	
 	//create two private double instance variables called mpg and fuel
 	//create a String variable called name
-	
+	private double mpg;
+	private double fuel;
+	Random rand = new Random();
 	
 	//generate a constructor using the variables you created.
-	
+	public Car(double mpg, double fuel) {
+		super();
+		this.mpg = mpg;
+		this.fuel = fuel;
+	}
 	
 	//generate a setters and getters for all variables
+	public double getMpg() {
+		return mpg;
+	}
+
+	public void setMpg(double mpg) {
+		this.mpg = mpg;
+	}
+
+	public double getFuel() {
+		return fuel;
+	}
+
+	public void setFuel(double fuel) {
+		this.fuel = fuel;
+	}
+	
+	public void drive(int moves) {
+		int times = rand.nextInt(2, 10);
+		int direction = 0;
+		while(times != 0) {
+			direction = rand.nextInt(4);
+			switch(direction) {
+			case 0:
+				System.out.println("_North");
+				break;
+			case 1:
+				System.out.println("_South");
+				break;
+			case 2:
+				System.out.println("_East");
+				break;
+			default:
+				System.out.println("_West");
+				break;
+			}
+			mpg = mpg -0.2;
+		}
+			
+	}
+	
 	
 	
 	/*

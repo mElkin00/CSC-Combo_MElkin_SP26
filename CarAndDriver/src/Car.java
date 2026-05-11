@@ -67,18 +67,22 @@ public class Car {
 			switch(direction) {
 			case 0:
 				System.out.println("_North");
+				fuel = fuel - 0.2;
 				break;
 			case 1:
 				System.out.println("_South");
+				fuel = fuel - 0.2;
 				break;
 			case 2:
 				System.out.println("_East");
+				fuel = fuel - 0.2;
 				break;
 			default:
 				System.out.println("_West");
+				fuel = fuel - 0.2;
 				break;
 			}
-			fuel = fuel - 0.2;
+			
 		}
 			
 	}

@@ -14,7 +14,7 @@ public class CarDriver {
 		//create the String variable name
 		String name;
 		String another = "y";
-		Car car = null;
+		
 		/* 
 		 * using appropriate prompts get input from the user to fill in these variables
 		 * you do not need input validation we will assume the user enters the data correctly
@@ -33,41 +33,34 @@ public class CarDriver {
 			mpg = input.nextDouble();
 			System.out.print("Enter in the amount of fuel: ");
 			fuel = input.nextDouble();
-			car = new Car(fuel, mpg, name);
+			cars.add(new Car(fuel, mpg, name));
 			System.out.print("Would you like to enter in another car? ");
 			another = input.next();
 			another = another.toLowerCase();
 		}
 		
-		
-		
-		/* 
-		 * create a method to print out all the cars in the list
-		 * 
-		 * hint use: for(car : cars)
-		 * 
-		 */
-		for(Car car1 : cars) {
-			getPrinter(car1);
-		}
-		System.out.println(car);
-		
 		// print the list
+		printCar(cars);
 		
 		// access one element of the cars list and have it move a number of units
+		Car car = new Car();
+		car.drive(1);
 		
 		// print the list again to see the change in fuel
-			
+		printCar(cars);
 	}
 	
-	public static void print(Car cars) {
-		System.out.println(cars);
+	/* 
+	 * create a method to print out all the cars in the list
+	 * 
+	 * hint use: for(car : cars)
+	 * 
+	 */
+	private static void printCar(ArrayList<Car> cars) {
+		for(Car car : cars) {
+			System.out.println(car);
+		}
+		
 	}
 	
-	public static  void getPrinter(Car cars) {
-		System.out.println("Name: " + cars.getName());
-		System.out.println("\nMPG: " + cars.getMpg());
-		System.out.println("\nFuel: " + cars.getFuel());
-	}
-
 }

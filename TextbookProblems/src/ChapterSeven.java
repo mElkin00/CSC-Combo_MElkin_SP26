@@ -5,11 +5,19 @@ public class ChapterSeven {
 	public static void main(String[] args) {
 		
 		arePrimeFactors();
+		if(arePrimeFactors() == true) System.out.println("True");
+		else System.out.println("False");
 		
-
+		areAnnograms();
 	}
 
-	private static void arePrimeFactors() {
+	private static void areAnnograms() {
+		Scanner input = new Scanner(System.in);
+		String str = input.next();
+		
+	}
+
+	private static boolean arePrimeFactors() {
 		/*TODO
 		 * 
 		 * Write a method named arePrimeFactors that takes an integer
@@ -17,17 +25,18 @@ public class ChapterSeven {
 		 * are all prime and their product is n
 		 * 
 		 */
-		
 		Scanner input = new Scanner(System.in);
-		int n = input.nextInt();
-		if(n == 0) {
-			
+		int n = 30;
+		int[] arr = {2, 3, 5};
+		
+		for(int i = 0; i < arr.length - 1; i++) {
+			if(arr[i] * arr[i + 1] * arr[i + 2] == 30) {
+				return true;
+			}
 		}
 		
+		return false;
 		
 	}
-	
-	
-	
 
 }
